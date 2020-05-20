@@ -224,3 +224,12 @@ function! GrepOperator(type)
 endfunction
 " }}}
 
+" other bindings {{{
+" insert regexp hex number
+nnoremap <leader>x <esc>i[0-9a-f]+<esc>
+nnoremap <leader>d <esc>cw[0-9a-f]+<esc>
+" disable spellcheck
+nnoremap <leader>ns <esc>:set nospell<cr>
+" increase number under cursor
+nnoremap <leader>i <esc><C-A>
+" }}}
