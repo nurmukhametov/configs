@@ -10,6 +10,7 @@ Plug 'Bashka/vim_git'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tikhomirov/vim-glsl'
 call plug#end()
 " }}}
 
@@ -37,6 +38,9 @@ filetype plugin on
 let leader = '\'
 let g:leader = '\'
 " }}}
+
+
+nmap <leader>q V}kJ<cr>
 
 " Show invisible characters {{{
 " Shortcut to rapidly toggle `set list`
@@ -128,6 +132,8 @@ colorscheme evening
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 " Disable Background Color Erase 
 set t_ut=
+
+nmap <leader>ns :set nospell<cr>
 " }}}
 
 " Moving combination declarations {{{
