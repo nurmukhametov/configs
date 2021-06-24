@@ -47,3 +47,12 @@ Create symlink
 cd ~/.config
 ln -s ~/configs/starship.toml
 ```
+
+### git
+
+Create symlink
+
+```bash
+cd ~
+ln -s ~/configs/.gitconfig
+```
