@@ -77,8 +77,13 @@ nmap <leader>mc :!make clean<cr><cr>
 " }}}
 
 " Clang-format bindings {{{
-map <C-F> :pyf /usr/share/vim/addons/syntax/clang-format-4.0.py<cr>
-imap <C-F> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-4.0.py<cr>
+if has('python')
+  map <C-F> :pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
+  imap <C-F> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
+elseif has('python3')
+  map <C-F> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
+  imap <C-F> <c-o>:py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
+endif
 " }}}
 
 " Cscope bindings {{{
