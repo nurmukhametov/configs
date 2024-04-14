@@ -11,6 +11,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tikhomirov/vim-glsl'
+Plug 'jez/vim-ispc'
+Plug 'github/copilot.vim'
 call plug#end()
 " }}}
 
