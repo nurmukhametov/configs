@@ -11,7 +11,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tikhomirov/vim-glsl'
-Plug 'jez/vim-ispc'
+Plug 'Twinklebear/ispc.vim'
 Plug 'github/copilot.vim'
 call plug#end()
 " }}}
@@ -245,4 +245,41 @@ nnoremap <leader>d <esc>cw[0-9a-f]+<esc>
 nnoremap <leader>ns <esc>:set nospell<cr>
 " increase number under cursor
 nnoremap <leader>i <esc><C-A>
+
+" put braces around a statement
+function! EncloseIfBranch()
+    " Save the current line number and indentation level
+    let current_line = line('.')
+    let current_indent = indent(current_line)
+    " Get the line content
+    let line_content = getline(current_line)
+    " Check if the line already contains an opening brace
+    if line_content =~ '{'
+        echo "Braces are already present."
+        return
+    endif
+
+    " Append opening brace to the current line
+    call setline(current_line, line_content . ' {')
+
+    " Initialize the line number for the following lines
+    let line_num = current_line + 1
+    let total_lines = line('$')
+
+    " Find the end of the block based on indentation
+    while line_num <= total_lines
+        let line_indent = indent(line_num)
+        if line_indent <= current_indent || getline(line_num) =~ '^\s*$'
+            break
+        endif
+        let line_num += 1
+    endwhile
+
+    " Insert the closing brace at the correct position
+    call append(line_num - 1, repeat(' ', current_indent) . '}')
+endfunction
+nnoremap <leader>b :call EncloseIfBranch()<CR>
+
+" map save and go to the next error entry
+nnoremap <leader>l :w<CR>:cnext<CR>zz
 " }}}
