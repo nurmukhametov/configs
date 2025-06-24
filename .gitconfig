@@ -10,6 +10,7 @@
 	rc = rebase --continue
 	ri = rebase -i HEAD~30
 	ra = rebase --abort
+	brd = "!f() { git branch -D $2 && git push $1 :$2; }; f"
 [user]
 	email = alex@nurmukhametov.ru
 	name = Alexey Nurmukhametov
