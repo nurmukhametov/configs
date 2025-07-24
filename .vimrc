@@ -282,4 +282,8 @@ nnoremap <leader>b :call EncloseIfBranch()<CR>
 
 " map save and go to the next error entry
 nnoremap <leader>l :w<CR>:cnext<CR>zz
+
+" copy to clipboard
+vnoremap <leader>y :w !xclip -selection clipboard<CR><CR>
+nnoremap <leader>y :.w !xclip -selection clipboard<CR><CR
 " }}}
