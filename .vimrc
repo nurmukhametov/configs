@@ -129,7 +129,7 @@ nmap <leader>spell :setlocal spell spelllang=ru<cr>
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-set cc=80
+set cc=120
 " }}}
 
 " Color schemes settings {{{
